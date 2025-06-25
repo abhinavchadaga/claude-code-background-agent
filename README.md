@@ -2,6 +2,56 @@
 
 A command-line tool that automates GitHub issue resolution using Claude Code in isolated Docker containers. Handles complete workflow from issue analysis to pull request creation with intelligent labeling and linking.
 
+## 🏃 Quick Start Example
+
+Get started in minutes with this simple example:
+
+### 1. Install Prerequisites
+```bash
+# Ensure you have Go, Docker, and Git installed
+go version    # Should show Go 1.23+
+docker --version
+git --version
+```
+
+### 2. Build the CLI
+```bash
+git clone https://github.com/your-username/claude-code-background-agent
+cd claude-code-background-agent
+go build -o claudecli
+```
+
+### 3. Set Environment Variables
+```bash
+export GITHUB_TOKEN="your_github_personal_access_token"
+export ANTHROPIC_API_KEY="your_anthropic_api_key"
+export REPO_OWNER="your-username"
+export REPO_NAME="your-repository"
+```
+
+### 4. Process Your First Issue
+```bash
+# Authenticate with GitHub
+./claudecli auth login
+
+# Process issue #42 and create a pull request automatically
+./claudecli issue 42
+```
+
+### Expected Output
+```
+Processing issue #42 for your-username/your-repository
+Fetching issue #42 from your-username/your-repository...
+Processing issue: Fix broken navigation menu
+Creating Docker container...
+Executing Claude Code...
+Claude Code execution completed successfully
+Creating pull request...
+✅ Successfully created pull request: https://github.com/your-username/your-repository/pull/43
+```
+
+That's it! The tool will automatically analyze the issue, make the necessary code changes using Claude Code, and create a pull request for review.
+
 ## 🚀 Current Status: Milestone 4 Complete
 
 **Latest Achievement**: Full GitHub PR creation & label management with complete issue-to-PR workflow automation.
